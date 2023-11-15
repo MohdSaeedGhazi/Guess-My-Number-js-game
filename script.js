@@ -54,6 +54,7 @@ let toRunCheck = function () {
 //again button runner
 let toRunAgain = function () {
   score = 20;
+  document.querySelector('.guess').value = '';
   document.querySelector('.score').textContent = score;
   document.querySelector('.message').textContent = `Start guessing...`;
   secretNumber = Math.floor(Math.random() * 20 + 1);
@@ -66,6 +67,11 @@ let toRunAgain = function () {
 
 //check button
 document.querySelector('.check').addEventListener('click', toRunCheck);
+
+//enter press
+document.addEventListener('keydown', function (e) {
+  if (e.key == 'Enter') document.querySelector('.check').click();
+});
 
 //again button
 document.querySelector('.again').addEventListener('click', toRunAgain);
